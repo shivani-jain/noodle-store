@@ -1,5 +1,7 @@
+import { Restaurant } from './../../models/restaurant.model';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { FetchRestaurantService } from 'src/app/services/fetch-restaurant.service';
 
 @Component({
   selector: 'app-view-restaurant-details',
@@ -9,14 +11,14 @@ import { ActivatedRoute } from '@angular/router';
 export class ViewRestaurantDetailsComponent implements OnInit {
 
   public id: number;
-  constructor(private route: ActivatedRoute) { }
+  public restaurant: Restaurant;
+  constructor(private route: ActivatedRoute, private fetchRestaurantService: FetchRestaurantService) { 
+    this.route.params.subscribe(params => {
+      this.id = +params['id'];
+   });
+  }
 
   ngOnInit(): void {
-    this.route.params.subscribe(params => {
-      this.id = +params['id']; // (+) converts string 'id' to a number
-      console.log(this.id);
-      // In a real app: dispatch action to load the details here.
-   });
   }
 
 }

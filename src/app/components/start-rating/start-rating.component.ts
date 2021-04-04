@@ -12,21 +12,19 @@ export class StartRatingComponent implements OnInit {
   @Input('starCount') public starCount: number = 5;
   @Input('color') public color: string = 'accent';
 
-  private snackBarDuration: number = 2000;
   public ratingArr = [];
 
-  constructor(private snackBar: MatSnackBar) {
+  constructor() {
   }
 
 
   ngOnInit() {
-    console.log("a "+this.starCount)
     for (let index = 0; index < this.starCount; index++) {
       this.ratingArr.push(index);
     }
   }
 
-  showIcon(index:number) {
+  showIcon(index: number) {
     if (this.rating >= index + 1) {
       return 'star';
     } else {

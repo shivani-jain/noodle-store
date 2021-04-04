@@ -17,7 +17,7 @@
         <mat-list-item class="noodle-list" *ngFor="let restaurant of restaurantList; let i = index"
             (click)="goToDetails(i)">
             <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="10px">
-                <img src="{{getImageUrl()}}" alt="{{restaurant.Brand}}" width="100" height="100">
+                <img src="{{getImageUrl(i)}}" alt="{{restaurant.Brand}}" width="100" height="100">
                 <div fxLayout="column">
                     <h2>{{restaurant.Brand}}</h2>
                     <span><b>Variety: </b> <span class="font-color-grey">{{restaurant.Variety}}</span></span>

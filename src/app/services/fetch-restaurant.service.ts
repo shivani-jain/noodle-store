@@ -10,11 +10,21 @@ export class FetchRestaurantService {
 
   constructor(private http: HttpClient) { }
 
-  fetch() {
+  fetchRestaurantList() {
     return this.http.get<Restaurant[]> ('https://s3-ap-southeast-1.amazonaws.com/he-public-data/TopRamen8d30951.json');
   }
 
   fetchImages() {
     return this.http.get<NoodleImage[]>('https://s3-ap-southeast-1.amazonaws.com/he-public-data/noodlesec253ad.json');
+  }
+
+  getRestaurant(index: number) {
+    let restaurantList: Restaurant[]
+    return this.fetchRestaurantList().subscribe((val) => {
+      restaurantList = val;
+      return restaurantList[index];
+    });
+
+    
   }
 }

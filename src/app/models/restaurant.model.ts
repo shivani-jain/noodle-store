@@ -3,5 +3,6 @@ export interface Restaurant {
     Variety: string,
     Style: string,
     Country: string,
-    Stars: number
+    Stars: number,
+    id: number
 }
