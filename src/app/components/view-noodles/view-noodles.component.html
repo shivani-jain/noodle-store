@@ -1,0 +1,32 @@
+<div class="container" fxLayout="column">
+    <div fxLayout="row" fxFlex="100">
+        <div fxLayout="row" fxFlex="50" fxLayoutAlign="center center" fxLayoutGap="15px">
+            <div>Sort by Stars:</div>
+            <button mat-raised-button color="primary" (click)="sortList('ASC')">Ascending</button>
+            <button mat-raised-button color="primary" (click)="sortList('DSC')">Descending</button>
+        </div>
+        <div fxFlex="50">
+            <mat-form-field fxFlex="50">
+                <mat-label>Search</mat-label>
+                <input matInput placeholder="Search by Brand, Pack, Variety, Country" value="{{name}}" [(ngModel)]="name" (blur)="filterList()">
+                <mat-hint>Search on blur</mat-hint>
+            </mat-form-field>
+        </div>
+    </div>
+    <mat-list>
+        <mat-list-item class="noodle-list" *ngFor="let restaurant of restaurantList; let i = index"
+            (click)="goToDetails(i)">
+            <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="10px">
+                <img src="{{getImageUrl()}}" alt="{{restaurant.Brand}}" width="100" height="100">
+                <div fxLayout="column">
+                    <h2>{{restaurant.Brand}}</h2>
+                    <span><b>Variety: </b> <span class="font-color-grey">{{restaurant.Variety}}</span></span>
+                    <span><b>Style: </b> <span class="font-color-grey">{{restaurant.Style}}</span></span>
+                    <span><b>Country: </b> <span class="font-color-grey">{{restaurant.Country}}</span></span>
+                    <app-start-rating [rating]="restaurant.Stars"></app-start-rating>
+                </div>
+            </div>
+            <mat-divider></mat-divider>
+        </mat-list-item>
+    </mat-list>
+</div>

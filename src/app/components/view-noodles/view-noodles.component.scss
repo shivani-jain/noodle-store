@@ -1,0 +1,23 @@
+.example-header-image {
+    background-image: url('https://s3-ap-southeast-1.amazonaws.com/he-public-data/indexee3e8a8.jpeg');
+    background-size: cover;
+    height: 100px;
+    width: 100px;
+  }
+.container {
+    padding: 20px;
+}
+
+.noodle-list {
+    padding-bottom: 15px !important;
+    height: auto !important;
+    cursor: pointer;
+}
+
+h2 {
+    margin: 0;
+}
+
+.font-color-grey {
+    color: #808080
+}
